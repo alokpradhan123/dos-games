@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Dangerous Dave Arcade</title>
-    <script src="https://cdn.jsdelivr.net/npm/js-dos@7.7.1/dist/js-dos.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/js-dos@7.7.1/dist/js-dos.css" rel="stylesheet">
+    <title>Dangerous Dave - True Full Screen</title>
     <style>
-        html, body, #jsdos { 
-            width: 100%; height: 100%; margin: 0; padding: 0; 
-            background: black; color: white; display: flex; 
-            justify-content: center; align-items: center; 
+        /* This makes the game container take up the whole page */
+        html, body { 
+            margin: 0; padding: 0; width: 100%; height: 100%; 
+            background-color: black; overflow: hidden; 
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <div id="jsdos"></div>
-    <script>
-        // Use the jsDelivr path for the core emulator files
-        emulators.pathPrefix = "https://cdn.jsdelivr.net/npm/js-dos@7.7.1/dist/";
-
-        Dos(document.getElementById("jsdos")).run("DDAVEVGA.zip").then((ci) => {
-            ci.terminal(["DAVE.EXE"]);
-        });
-    </script>
+    <iframe 
+        src="https://archive.org/embed/msdos_DDAVEVGA_shareware" 
+        allowfullscreen="true" 
+        webkitallowfullscreen="true" 
+        mozallowfullscreen="true">
+    </iframe>
 </body>
 </html>
