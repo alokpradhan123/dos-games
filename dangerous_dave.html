@@ -3,28 +3,19 @@
 <head>
     <meta charset="utf-8">
     <title>Dangerous Dave Arcade</title>
-    <script src="https://cdn.jsdelivr.net/gh/js-dos/pwa@main/js-dos.js"></script>
-    <link href="https://cdn.jsdelivr.net/gh/js-dos/pwa@main/js-dos.css" rel="stylesheet">
+    <link rel="stylesheet" href="js-dos.css">
+    <script src="js-dos.js"></script>
     <style>
-        html, body, #jsdos { 
-            width: 100%; height: 100%; margin: 0; padding: 0; 
-            background: black; color: white;
-        }
+        html, body, #jsdos { width: 100%; height: 100%; margin: 0; padding: 0; background: black; }
     </style>
 </head>
 <body>
     <div id="jsdos"></div>
     <script>
-        // We check if the engine loaded correctly first
-        if (typeof Dos !== 'undefined') {
-            Dos(document.getElementById("jsdos"), {
-                wd: "DDAVEVGA.zip"
-            }).ready(function (fs, main) {
-                main(["-c", "DAVE.EXE"]);
-            });
-        } else {
-            document.getElementById("jsdos").innerHTML = "Error: Engine failed to load. Please refresh the page.";
-        }
+        // No more "Error: Engine failed" because it's in your folder!
+        Dos(document.getElementById("jsdos")).run("DDAVEVGA.zip").then((ci) => {
+            ci.terminal(["DAVE.EXE"]);
+        });
     </script>
 </body>
 </html>
