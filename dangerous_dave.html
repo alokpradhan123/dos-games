@@ -2,17 +2,24 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Dangerous Dave Arcade</title>
-    <link rel="stylesheet" href="js-dos.css">
-    <script src="js-dos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-dos@7.7.1/dist/js-dos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/js-dos@7.7.1/dist/js-dos.css" rel="stylesheet">
     <style>
-        html, body, #jsdos { width: 100%; height: 100%; margin: 0; padding: 0; background: black; }
+        html, body, #jsdos { 
+            width: 100%; height: 100%; margin: 0; padding: 0; 
+            background: black; color: white; display: flex; 
+            justify-content: center; align-items: center; 
+        }
     </style>
 </head>
 <body>
     <div id="jsdos"></div>
     <script>
-        // No more "Error: Engine failed" because it's in your folder!
+        // Use the jsDelivr path for the core emulator files
+        emulators.pathPrefix = "https://cdn.jsdelivr.net/npm/js-dos@7.7.1/dist/";
+
         Dos(document.getElementById("jsdos")).run("DDAVEVGA.zip").then((ci) => {
             ci.terminal(["DAVE.EXE"]);
         });
